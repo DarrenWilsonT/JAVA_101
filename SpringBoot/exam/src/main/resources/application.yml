@@ -12,7 +12,16 @@ spring:
         url: jdbc:mysql://localhost:3306/firstdemo
         username: root
         password: root
+    mvc:
+        pathmatch:
+            #Spring MVC 路径匹配策略默认为ant-path-matcher
+            #而 Spring Boot 2.7.x版本的默认匹配策略是 path-pattern-matcher
+            matching-strategy: ant-path-matcher
 
 swagger:
     enabled: true
+
+logging:
+    file:
+        name: E:/SpringBootLog/exam.log
 
