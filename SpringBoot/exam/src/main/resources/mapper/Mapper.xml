@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.demo.order.mapper.OrderMapper">
+
+    <resultMap id="orders" type="com.exam.demo.order.entity.Order" >
+        <id column="ORDER_ID" property="id"/>
+        <result column="ADDRESS" property="address"/>
+        <result column="SALES" property="sales"/>
+        <result column="CREATE_TIME" property="CreateTime"/>
+    </resultMap>
+
+    <insert id="CreateOneOrder" parameterType="com.exam.demo.order.entity.Order" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO orders(ADDRESS, SALES, CREATE_TIME)
+        VALUES(#{address}, #{sales}, #{CreateTime})
+    </insert>
+</mapper>
