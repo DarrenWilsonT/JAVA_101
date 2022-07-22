@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper
 public interface OrderMapper extends BaseMapper<Order> {
 //    List<Order> getOrderByAddress(String aaddress);
-    Integer CreateOneOrder(Order order);
+    Boolean CreateOneOrder(Order order);
     @Select("select * from orders ${ew.customSqlSegment}")
     @Results( @Result(column = "ORDER_ID",property = "id"))
     List<Order> getOrderLePrice(@Param(Constants.WRAPPER)QueryWrapper<Order> condition);

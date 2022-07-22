@@ -19,7 +19,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     public Integer CreateOneOrder(Order aOrder) {
         aOrder.setCreateTime(LocalDateTime.now());
-        return baseMapper.CreateOneOrder(aOrder);
+        if(baseMapper.CreateOneOrder(aOrder)){
+            return aOrder.getId();
+        }else{
+            return 500;
+        }
     }
 
     @Override
